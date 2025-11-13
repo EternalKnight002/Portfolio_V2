@@ -111,3 +111,73 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .project-card { transition: none !important; transform: none !important; }
 }
+/* --- Hero & typography improvements --- */
+
+/* larger hero heading */
+.hero-heading {
+  font-size: clamp(2.1rem, 4vw, 3.6rem);
+  line-height: 1.02;
+  font-weight: 800;
+  margin-top: 6px;
+  color: rgb(var(--text));
+  letter-spacing: -0.02em;
+}
+
+/* hero image card */
+.hero-image-card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.02));
+  border: 1px solid rgba(255,255,255,0.03);
+  padding: 6px;
+}
+
+/* primary button */
+.btn-primary {
+  padding: .6rem .9rem;
+  border-radius: 10px;
+  background: linear-gradient(90deg, rgba(167,139,250,1), rgba(120,95,255,1));
+  color: black;
+  font-weight: 600;
+  box-shadow: 0 10px 30px rgba(167,139,250,0.08);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 20px 40px rgba(167,139,250,0.12); }
+
+/* ghost link */
+.btn-ghost {
+  padding: .6rem .9rem;
+  border-radius: 10px;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.06);
+  color: rgb(var(--text));
+  font-weight: 600;
+}
+
+/* make project cards more airy */
+.project-card {
+  border-radius: 12px;
+  padding: 20px;
+  background: linear-gradient(180deg, rgba(var(--panel),0.96), rgba(var(--panel),0.98));
+  border: 1px solid rgba(255,255,255,0.02);
+}
+
+/* heading & spacing for page sections */
+section h2 {
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+}
+
+/* container padding to keep consistent */
+.container {
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 18px;
+  padding-right: 18px;
+}
+
+/* link underline style for better visibility */
+a { text-decoration: none; }
+a:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+/* ensure images don't overflow small devices */
+img { max-width: 100%; height: auto; display: block; }

@@ -1,28 +1,47 @@
-// components/Hero.tsx
+// /components/Hero.tsx
+'use client'
+
 import Image from 'next/image'
+import Link from 'next/link'
+import { FiArrowRight } from 'react-icons/fi'
 
 export default function Hero() {
   return (
-    <section className="py-20">
-      <div className="container px-4 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-        <div>
-          <h1 className="hero-title text-4xl md:text-6xl font-extrabold leading-tight">
-            Hi! I’m <span className="text-accent">Your Name</span><br/>
-            I design &amp; build delightful user interfaces.
+    <section className="relative overflow-hidden pt-12 pb-20">
+      <div className="container flex flex-col lg:flex-row items-center gap-10">
+        <div className="flex-1">
+          <p className="text-sm font-medium text-accent mb-4">Hi, I’m</p>
+
+          <h1 className="hero-heading">
+            I design & build <span className="text-accent">delightful</span> user interfaces.
           </h1>
-          <p className="mt-6 text-gray-300 max-w-xl">
-            Frontend developer focused on clean, accessible, and polished web apps. I love turning product ideas into production-ready code.
+
+          <p className="mt-6 text-gray-300 max-w-xl leading-relaxed">
+            Frontend developer focused on clean, accessible, and polished web apps.
+            I turn product ideas into production-ready code — with performance and UX in mind.
           </p>
 
-          <div className="mt-6 flex gap-3">
-            <a href="#projects" className="px-5 py-3 rounded-md bg-accent text-black font-semibold">See projects</a>
-            <a href="#contact" className="px-5 py-3 rounded-md border border-gray-700">Contact</a>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Link href="#projects" className="btn-primary inline-flex items-center gap-2">
+              See projects <FiArrowRight />
+            </Link>
+
+            <a href="#contact" className="btn-ghost">
+              Contact
+            </a>
           </div>
         </div>
 
-        <div className="flex justify-center lg:justify-end">
-          <div className="phone-mock w-[320px] h-[640px] bg-black/60">
-            <Image src="/images/hero-mockup.png" alt="phone mockup" width={320} height={640} className="object-cover" />
+        <div className="flex-1 w-full max-w-xl">
+          <div className="hero-image-card rounded-2xl overflow-hidden shadow-2xl">
+            <Image
+              src="/images/hero-mockup.png"
+              alt="phone mockup"
+              width={1200}
+              height={800}
+              priority
+              className="object-cover"
+            />
           </div>
         </div>
       </div>
