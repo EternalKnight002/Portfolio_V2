@@ -78,3 +78,36 @@ body {
 @media (prefers-reduced-motion: reduce) {
   * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
 }
+
+/* Projects card / button styling — keep consistent with design tokens in globals.css */
+.project-card {
+  transition: box-shadow 220ms ease, transform 220ms ease;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.03);
+  background: linear-gradient(180deg, rgba(var(--panel),0.98), rgba(var(--panel),0.98));
+}
+
+/* subtle accent glow when hovering (uses the same purple -> blue gradient) */
+.project-card:hover {
+  box-shadow: 0 12px 30px rgba(99,102,241,0.06), 0 6px 12px rgba(15,23,42,0.16);
+  border-color: rgba(167,139,250,0.08);
+}
+
+/* small utility for tag truncation */
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* accent button tokens (used by the Live button) */
+.btn-accent {
+  background: linear-gradient(90deg, rgba(167,139,250,1), rgba(96,165,250,1));
+  color: #000;
+}
+
+/* respect reduced-motion explicitly */
+@media (prefers-reduced-motion: reduce) {
+  .project-card { transition: none !important; transform: none !important; }
+}

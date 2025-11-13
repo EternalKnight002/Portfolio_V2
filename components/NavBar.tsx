@@ -1,3 +1,4 @@
+// components/NavBar.tsx
 'use client'
 import Link from 'next/link'
 import { useState } from 'react'
@@ -18,7 +19,7 @@ export default function NavBar() {
         </nav>
 
         <div className="md:hidden">
-          <button onClick={() => setOpen(v => !v)} aria-label="toggle menu" className="p-2">
+          <button type="button" onClick={() => setOpen(v => !v)} aria-label="toggle menu" className="p-2">
             {open ? '✕' : '☰'}
           </button>
         </div>
