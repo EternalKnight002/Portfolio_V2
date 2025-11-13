@@ -181,3 +181,51 @@ a:hover { text-decoration: underline; text-underline-offset: 4px; }
 
 /* ensure images don't overflow small devices */
 img { max-width: 100%; height: auto; display: block; }
+
+
+:root {
+  --accent: #b7594f; /* warm accent like reference */
+}
+
+html, body {
+  scroll-behavior: smooth;
+}
+
+.display-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: 6.5rem; /* adjust as needed for breakpoints */
+  line-height: 0.95;
+  font-weight: 400;
+  color: #e6eef1;
+  letter-spacing: -0.02em;
+}
+
+.name-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  margin-top: 0.35rem;
+  color: #e6eef1;
+}
+
+.text-accent {
+  color: var(--accent);
+}
+
+.text-muted {
+  color: rgba(230,238,241,0.7);
+}
+
+@media (max-width: 1024px) {
+  .display-heading { font-size: 3.2rem; }
+  .name-heading { font-size: 1.8rem; }
+}
+
+@media (max-width: 640px) {
+  .display-heading { font-size: 2.4rem; }
+  .name-heading { font-size: 1.4rem; }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
