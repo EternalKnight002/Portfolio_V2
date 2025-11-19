@@ -1,26 +1,25 @@
-
 import './globals.css'
+import { Montserrat, Playfair_Display } from 'next/font/google' // Fixed import
 import { ThemeProvider } from 'next-themes'
-import NavBar from '../components/NavBar'
-import ThemeToggle from '../components/ThemeToggle'
+
+const montserrat = Montserrat({ 
+  subsets: ['latin'],
+  variable: '--font-montserrat',
+  display: 'swap',
+})
+
+const playfair = Playfair_Display({ 
+  subsets: ['latin'],
+  variable: '--font-playfair',
+  display: 'swap',
+})
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body>
-        <ThemeProvider attribute="class" defaultTheme="dark">
-          <div className="min-h-screen flex flex-col">
-            <NavBar />
-            <main className="flex-1">
-              {children}
-            </main>
-            <footer className="py-8">
-              <div className="container px-4">
-                <div className="text-center text-sm text-gray-400">© {new Date().getFullYear()} Your Name — Developer</div>
-              </div>
-            </footer>
-            <ThemeToggle />
-          </div>
+    <html lang="en" className={`${montserrat.variable} ${playfair.variable}`}>
+      <body className="bg-background text-white selection:bg-accent selection:text-white">
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+          {children}
         </ThemeProvider>
       </body>
     </html>

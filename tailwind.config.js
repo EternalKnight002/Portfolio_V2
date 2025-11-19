@@ -8,17 +8,17 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Montserrat', 'ui-sans-serif', 'system-ui']
+        sans: ['var(--font-montserrat)', 'ui-sans-serif', 'system-ui'],
+        serif: ['var(--font-playfair)', 'Georgia', 'serif'], // Added Serif
       },
       colors: {
-        accent: {
-          DEFAULT: 'rgb(167,139,250)', // soft purple
-        },
-        bg: {
-          DEFAULT: 'rgb(15 15 15)', // dark canvas
-        }
+        background: '#0f1319', // The dark background from image
+        accent: '#b7594f',     // The reddish-brown accent color
+        panel: '#1a1f26',
       }
     }
   },
-  plugins: []
+  plugins: [
+    require('@tailwindcss/line-clamp'),
+  ]
 }

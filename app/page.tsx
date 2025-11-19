@@ -1,23 +1,28 @@
-import Hero from '../components/Hero'
-import ProjectsSection from '../components/ProjectsSection'
-import AboutSection from '../components/AboutSection'
-import SkillsSection from '../components/SkillsSection'
-import FutureInterestsSection from '../components/FutureInterestsSection' // reused from your uploaded file. :contentReference[oaicite:2]{index=2}
-import ContactSection from '../components/ContactSection'
+'use client';
+
+import { useState } from 'react';
 import NavBar from '@/components/NavBar';
+import Hero from '@/components/Hero';
 
 export default function Page() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
-    <>
-      <Hero />
-      <div className="container px-4">
-        <NavBar />
-        <AboutSection />
-        <ProjectsSection />
-        <SkillsSection />
-        <FutureInterestsSection />
-        <ContactSection />
+    <main className="bg-background min-h-screen relative">
+      
+      {/* Navbar sits on top of everything */}
+      <NavBar isOpen={isMenuOpen} setIsOpen={setIsMenuOpen} />
+
+      {/* Hero handles the split screen menu interaction */}
+      <Hero isOpen={isMenuOpen} setIsOpen={setIsMenuOpen} />
+
+      {/* Only show other sections if menu is closed (Optional: remove conditional if you want them to scroll below) */}
+      <div className={`${isMenuOpen ? 'hidden' : 'block'}`}>
+        <div className="container mx-auto px-6">
+         
+        </div>
       </div>
-    </>
-  )
+
+    </main>
+  );
 }

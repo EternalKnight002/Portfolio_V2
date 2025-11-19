@@ -1,231 +1,31 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* design tokens - use space-separated rgb for easy CSS var usage */
 :root {
-  --bg: 18 18 18;          /* dark canvas */
-  --panel: 28 28 30;
-  --text: 230 230 234;
-  --muted: 167 139 250;    /* purple */
-  --muted-2: 199 217 255;
-  --glass: 255 255 255;
-}
-
-/* light theme fallback (optional) */
-:root.light {
-  --bg: 255 255 255;
-  --panel: 248 248 250;
-  --text: 17 24 39;
-  --muted: 99 102 241;
-}
-
-/* the next-themes 'dark' class will appear on <html> automatically */
-.dark {
-  --bg: 18 18 18;
-  --panel: 28 28 30;
-  --text: 230 230 234;
-  --muted: 167 139 250;
-}
-
-html,body,#__next {
-  height: 100%;
+  --background: #0f1319;
+  --text-main: #e6eef1;
 }
 
 body {
-  background: rgb(var(--bg));
-  color: rgb(var(--text));
-  font-family: 'Montserrat', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  line-height: 1.4;
+  background-color: var(--background);
+  color: var(--text-main);
+  overflow-x: hidden; /* Prevent scrollbar when menu slides */
 }
 
-.container {
-  max-width: 1100px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* small helper classes */
-.text-accent { color: rgb(var(--muted)); }
-.bg-panel { background: rgb(var(--panel)); }
-.accent-grad {
-  background: linear-gradient(90deg, rgba(167,139,250,1), rgba(120,95,255,1));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-/* responsive hero large headline */
-.hero-title {
-  letter-spacing: -0.02em;
-}
-
-/* smoothing for images */
-.img-smooth { image-rendering: -webkit-optimize-contrast; }
-
-/* ensure large phone mockups don't overflow on small screens */
-.phone-mock {
-  border-radius: 28px;
-  overflow: hidden;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
-}
-
-/* reduce motion if user prefers it */
-@media (prefers-reduced-motion: reduce) {
-  * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
-}
-
-/* Projects card / button styling — keep consistent with design tokens in globals.css */
-.project-card {
-  transition: box-shadow 220ms ease, transform 220ms ease;
-  border-radius: 12px;
-  border: 1px solid rgba(255,255,255,0.03);
-  background: linear-gradient(180deg, rgba(var(--panel),0.98), rgba(var(--panel),0.98));
-}
-
-/* subtle accent glow when hovering (uses the same purple -> blue gradient) */
-.project-card:hover {
-  box-shadow: 0 12px 30px rgba(99,102,241,0.06), 0 6px 12px rgba(15,23,42,0.16);
-  border-color: rgba(167,139,250,0.08);
-}
-
-/* small utility for tag truncation */
-.line-clamp-3 {
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-/* accent button tokens (used by the Live button) */
-.btn-accent {
-  background: linear-gradient(90deg, rgba(167,139,250,1), rgba(96,165,250,1));
-  color: #000;
-}
-
-/* respect reduced-motion explicitly */
-@media (prefers-reduced-motion: reduce) {
-  .project-card { transition: none !important; transform: none !important; }
-}
-/* --- Hero & typography improvements --- */
-
-/* larger hero heading */
-.hero-heading {
-  font-size: clamp(2.1rem, 4vw, 3.6rem);
-  line-height: 1.02;
-  font-weight: 800;
-  margin-top: 6px;
-  color: rgb(var(--text));
-  letter-spacing: -0.02em;
-}
-
-/* hero image card */
-.hero-image-card {
-  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.02));
-  border: 1px solid rgba(255,255,255,0.03);
-  padding: 6px;
-}
-
-/* primary button */
-.btn-primary {
-  padding: .6rem .9rem;
-  border-radius: 10px;
-  background: linear-gradient(90deg, rgba(167,139,250,1), rgba(120,95,255,1));
-  color: black;
-  font-weight: 600;
-  box-shadow: 0 10px 30px rgba(167,139,250,0.08);
-  transition: transform .18s ease, box-shadow .18s ease;
-}
-.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 20px 40px rgba(167,139,250,0.12); }
-
-/* ghost link */
-.btn-ghost {
-  padding: .6rem .9rem;
-  border-radius: 10px;
-  background: transparent;
-  border: 1px solid rgba(255,255,255,0.06);
-  color: rgb(var(--text));
-  font-weight: 600;
-}
-
-/* make project cards more airy */
-.project-card {
-  border-radius: 12px;
-  padding: 20px;
-  background: linear-gradient(180deg, rgba(var(--panel),0.96), rgba(var(--panel),0.98));
-  border: 1px solid rgba(255,255,255,0.02);
-}
-
-/* heading & spacing for page sections */
-section h2 {
-  font-size: 1.6rem;
-  margin-bottom: 0.5rem;
-}
-
-/* container padding to keep consistent */
-.container {
-  max-width: 1100px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 18px;
-  padding-right: 18px;
-}
-
-/* link underline style for better visibility */
-a { text-decoration: none; }
-a:hover { text-decoration: underline; text-underline-offset: 4px; }
-
-/* ensure images don't overflow small devices */
-img { max-width: 100%; height: auto; display: block; }
-
-
-:root {
-  --accent: #b7594f; /* warm accent like reference */
-}
-
-html, body {
+/* Smooth scrolling */
+html {
   scroll-behavior: smooth;
 }
 
-.display-heading {
-  font-family: 'Playfair Display', serif;
-  font-size: 6.5rem; /* adjust as needed for breakpoints */
-  line-height: 0.95;
-  font-weight: 400;
-  color: #e6eef1;
-  letter-spacing: -0.02em;
+/* Hide scrollbar for clean UI */
+::-webkit-scrollbar {
+  width: 6px;
 }
-
-.name-heading {
-  font-family: 'Playfair Display', serif;
-  font-size: 3rem;
-  margin-top: 0.35rem;
-  color: #e6eef1;
+::-webkit-scrollbar-track {
+  background: #0f1319;
 }
-
-.text-accent {
-  color: var(--accent);
-}
-
-.text-muted {
-  color: rgba(230,238,241,0.7);
-}
-
-@media (max-width: 1024px) {
-  .display-heading { font-size: 3.2rem; }
-  .name-heading { font-size: 1.8rem; }
-}
-
-@media (max-width: 640px) {
-  .display-heading { font-size: 2.4rem; }
-  .name-heading { font-size: 1.4rem; }
-}
-
-/* Respect reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  * { transition: none !important; animation: none !important; }
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 3px;
 }
