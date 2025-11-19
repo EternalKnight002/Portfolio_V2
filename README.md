@@ -58,8 +58,8 @@ Coming soon…
 Feel free to reach out:
 
 - **GitHub:** https://github.com/EternalKnight002
-- **Email:** (add yours)
-- **LinkedIn:** (optional)
+- **Email:** resoamankumar@gmail.com
+<!-- - **LinkedIn:** (optional) -->
 
 ---
 
