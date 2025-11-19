@@ -22,10 +22,9 @@ It includes:
 - **HTML**
 - **CSS / TailwindCSS**
 - **JavaScript**
-- **React** (if used)
-- **Vite / Next.js** (if used)
+- **React** 
+- **Next.js** 
 
-Update based on your actual stack.
 
 ---
 
@@ -42,7 +41,7 @@ Portfolio_V2/
 │── README.md
 ```
 
-(Modify if your structure differs.)
+
 
 ---
 
